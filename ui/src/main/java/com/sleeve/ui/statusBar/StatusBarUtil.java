@@ -23,6 +23,7 @@ import java.lang.reflect.Method;
  * <p>
  * See https://blog.csdn.net/u014418171/article/details/81223681
  */
+@TargetApi(21)
 public class StatusBarUtil {
 
     public final static int TYPE_MIUI = 0;
@@ -58,7 +59,6 @@ public class StatusBarUtil {
     /**
      * 设置状态栏透明
      */
-    @TargetApi(19)
     public static void setTranslucentStatus(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // 5.x开始需要把颜色设置透明，否则导航栏会呈现系统默认的浅灰色

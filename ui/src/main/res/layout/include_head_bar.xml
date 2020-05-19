@@ -6,13 +6,6 @@
     android:background="@color/head_bar_bg"
     android:orientation="vertical">
 
-    <com.sleeve.ui.view.TopOccupyLinearLayout
-        android:id="@+id/top_occupy_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:use_type="use_padding_top" />
-
     <com.sleeve.ui.view.HeadBar
         android:id="@+id/head_bar"
         android:layout_width="match_parent"

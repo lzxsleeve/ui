@@ -1,7 +1,10 @@
 package com.sleeve.app
 
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.util.Log
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.sleeve.net.NetCallback
 import com.sleeve.net.NetRequestFactory
 import com.sleeve.ui.load.LoadHeadBarUIF
@@ -27,12 +30,28 @@ class MainUIF : LoadHeadBarUIF(), View.OnClickListener {
     override fun initView() {
         setSwipeBackEnable(false)
         main_request.setOnClickListener(this)
+        main_bar_color.setOnClickListener(this)
+        main_toolbar_color.setOnClickListener(this)
+        main_reset.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
         when (v) {
             main_request -> {
                 requestTest()
+            }
+            main_bar_color -> {
+                val color = ContextCompat.getColor(_mActivity, R.color.colorPrimary)
+                mStartBar?.setStatusBarBackgroundColor(color)
+            }
+            main_toolbar_color -> {
+                setToolbarBackground(ColorDrawable(Color.RED))
+            }
+            main_reset -> {
+                val color = ContextCompat.getColor(_mActivity, R.color.colorPrimary)
+                setToolbarBackground(ColorDrawable(color))
+                val colorDark = ContextCompat.getColor(_mActivity, R.color.colorPrimaryDark)
+                mStartBar?.setStatusBarBackgroundColor(colorDark)
             }
         }
     }

@@ -1,5 +1,6 @@
 package com.sleeve.ui.base;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +15,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.appbar.AppBarLayout;
 import com.sleeve.ui.R;
 import com.sleeve.ui.view.HeadBar;
-import com.sleeve.ui.view.TopOccupyLinearLayout;
+import com.sleeve.ui.view.StatusBarView;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
@@ -31,7 +32,7 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
     protected HeadBar mHeadBar;
     // 装载 RxJava 的观察者
     protected CompositeDisposable mCompositeDisposable;
-    protected TopOccupyLinearLayout mTopOccupy;
+    protected StatusBarView mStartBar;
 
     @Nullable
     @Override
@@ -39,7 +40,7 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
         View layoutParent = inflater.inflate(R.layout.base_uif_toolbar, container, false);
         // 显示内容的根布局
         mViewGroup = layoutParent.findViewById(R.id.frame_layout);
-        mTopOccupy = layoutParent.findViewById(R.id.top_occupy_layout);
+        mStartBar = layoutParent.findViewById(R.id.status_bar_View);
         // 设置头部
         setToolbar(layoutParent);
         // 添加头部以下内容布局
@@ -66,31 +67,22 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
 
     private void setToolbar(View layoutParent) {
         mHeadBar = layoutParent.findViewById(R.id.head_bar);
-        // 添加状态栏的高度view
-//        ImmersionBar.setTitleBar(_mActivity, mHeadBar);
         initHeadBar(mHeadBar);
         mHeadBar.setOnBackClick(this::onToolbarBackClick);
     }
 
     /**
-     * 设置沉浸式，沉浸式头部会多出状态栏高度
-     */
-    protected void setImmersion() {
-        mTopOccupy.setVisibility(View.VISIBLE);
-    }
-
-    /**
-     * 设置头部的背景颜色资源
+     * 设置HeadBar的背景颜色资源
      */
     protected void setToolbarBackground(@DrawableRes int id) {
-        ((AppBarLayout) mHeadBar.getParent()).setBackground(ContextCompat.getDrawable(_mActivity, id));
+        setToolbarBackground(ContextCompat.getDrawable(_mActivity, id));
     }
 
     /**
-     * 设置状态栏部分的背景颜色资源
+     * 设置HeadBar的背景颜色资源
      */
-    protected void setStatusBarBackground(@DrawableRes int id) {
-        mTopOccupy.setBackground(ContextCompat.getDrawable(_mActivity, id));
+    protected void setToolbarBackground(Drawable drawable) {
+        ((AppBarLayout) mHeadBar.getParent()).setBackground(drawable);
     }
 
     /**
