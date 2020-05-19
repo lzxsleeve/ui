@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="http://schemas.android.com/tools">
+    <attr format="reference" name="LoadingStyle"/>
+    <color name="colorAccent">#3583CA</color>
+    <color name="colorPrimary">#3583CA</color>
+    <color name="colorPrimaryDark">#2D74B4</color>
+    <color name="head_bar_bg">@color/colorPrimary</color>
+    <color name="img_def">#CCCCCC</color>
+    <color name="line_ccc">#CCCCCC</color>
+    <color name="line_f0">#F0F0F0</color>
+    <color name="loading_bg">#D7000000</color>
+    <color name="selector_text_false">#949595</color>
+    <color name="text303030">#303030</color>
+    <color name="text333">#333333</color>
+    <color name="text666">#666666</color>
+    <color name="text999">#999999</color>
+    <color name="theme">#3583CA</color>
+    <color name="theme_end">#3889d3</color>
+    <color name="theme_end_select">#2e77b9</color>
+    <color name="theme_start">#3f9aed</color>
+    <color name="theme_start_select">#3a80c1</color>
+    <declare-styleable name="LoadingView">
+        <attr format="dimension" name="loading_view_size"/>
+        <attr name="android:color"/>
+    </declare-styleable>
+    <dimen name="item_height">52dp</dimen>
+    <dimen name="load_indicator_size">12dp</dimen>
+    <dimen name="load_indicator_stroke">1dp</dimen>
+    <dimen name="margin">12dp</dimen>
+    <dimen name="radius">4dp</dimen>
+<!--    <string name="bottom_behavior_appbar_hide">com.zwonb.ui.behavior.BottomBehaviorAppBar</string>-->
+<!--    <string name="bottom_behavior_scroll_hide">com.zwonb.ui.behavior.BottomBehavior</string>-->
+    <string name="loading_tip">Loading…</string>
+    <style name="ActivityAnim">
+        <item name="android:activityOpenEnterAnimation">@anim/h_fragment_enter</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:statusBarColor" ns1:targetApi="lollipop">@color/colorPrimaryDark
+        </item>
+        <!--<item name="android:navigationBarColor" tools:targetApi="lollipop">@color/colorPrimary-->
+        <!--</item>-->
+    </style>
+    <style name="BottomDialogTheme" parent="Animation.Design.BottomSheetDialog"/>
+    <style name="ScanTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:statusBarColor" ns1:targetApi="lollipop">@color/colorPrimaryDark
+        </item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
+    </style>
+    <style name="SwipeBackTheme" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnim</item>
+    </style>
+    <style name="line_big_horizontal">
+        <item name="android:layout_height">12dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/line_f0</item>
+    </style>
+    <style name="line_big_vertical">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">12dp</item>
+        <item name="android:background">@color/line_f0</item>
+    </style>
+    <style name="line_horizontal">
+        <item name="android:layout_height">0.4dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/line_ccc</item>
+    </style>
+    <style name="line_vertical">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0.4dp</item>
+        <item name="android:background">@color/line_ccc</item>
+    </style>
+    <style name="more_img">
+        <!--<item name="android:src">@drawable/ic_more</item>-->
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+    </style>
+    <style name="text14" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/text333</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="text16" parent="TextAppearance.AppCompat.Body1">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/text333</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
