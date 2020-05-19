@@ -32,7 +32,7 @@
             android:id="@+id/loading_img"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:matProg_barColor="#fff"
+            app:matProg_barColor="#F0F0F0"
             app:matProg_progressIndeterminate="true" />
 
         <TextView
