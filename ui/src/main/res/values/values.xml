@@ -34,7 +34,7 @@
     <style name="ActivityAnim">
         <item name="android:activityOpenEnterAnimation">@anim/h_fragment_enter</item>
     </style>
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="LAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -56,7 +56,7 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/black</item>
     </style>
-    <style name="SwipeBackTheme" parent="AppTheme">
+    <style name="SwipeBackTheme" parent="LAppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowAnimationStyle">@style/ActivityAnim</item>
     </style>

@@ -1,12 +1,25 @@
 package com.sleeve.app
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
+import com.sleeve.ui.base.BaseUIA
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseUIA() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        addContentView()
+
+        if (findFragment(MainUIF::class.java) == null) {
+            loadFragment(MainUIF())
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        val fragments = supportFragmentManager.fragments
+        fragments.forEach {
+            it.onActivityResult(requestCode, resultCode, data)
+        }
     }
 }
