@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.material.appbar.AppBarLayout;
 import com.sleeve.ui.R;
 import com.sleeve.ui.view.HeadBar;
-import com.sleeve.ui.view.StatusBarView;
+import com.sleeve.ui.view.ImmersionView;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.CompositeDisposable;
@@ -32,7 +32,9 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
     protected HeadBar mHeadBar;
     // 装载 RxJava 的观察者
     protected CompositeDisposable mCompositeDisposable;
-    protected StatusBarView mStartBar;
+
+    // 模拟的状态栏占位View
+    protected @Nullable ImmersionView mStartBar;
 
     @Nullable
     @Override
@@ -40,7 +42,6 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
         View layoutParent = inflater.inflate(R.layout.base_uif_toolbar, container, false);
         // 显示内容的根布局
         mViewGroup = layoutParent.findViewById(R.id.frame_layout);
-        mStartBar = layoutParent.findViewById(R.id.status_bar_View);
         // 设置头部
         setToolbar(layoutParent);
         // 添加头部以下内容布局
@@ -83,6 +84,19 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
      */
     protected void setToolbarBackground(Drawable drawable) {
         ((AppBarLayout) mHeadBar.getParent()).setBackground(drawable);
+    }
+
+    /**
+     * 设置模拟的状态栏
+     */
+    protected void setStatusBarView() {
+        if (mStartBar == null) {
+            mStartBar = new ImmersionView(getContext());
+            AppBarLayout appBar = (AppBarLayout) mHeadBar.getParent();
+            appBar.addView(mStartBar, 0);
+            AppBarLayout.LayoutParams lp = new AppBarLayout.LayoutParams(-1, -2);
+            mStartBar.setLayoutParams(lp);
+        }
     }
 
     /**

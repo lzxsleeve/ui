@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="use_type" format="integer">
+        <enum name="use_height" value="0" />        <!--通过设置高度的方式-->
+        <enum name="use_padding_top" value="1" />   <!--通过设置paddingTop的方式-->
+    </attr>
+
+    <declare-styleable name="ImmersionConstraintLayout">
+        <attr name="use_type" />
+    </declare-styleable>
+
+    <declare-styleable name="ImmersionLinearLayout">
+        <attr name="use_type" />
+    </declare-styleable>
+
+</resources>

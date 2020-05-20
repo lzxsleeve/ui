@@ -5,11 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sleeve.ui.view.StatusBarView
-        android:id="@+id/status_bar_View"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
     <include layout="@layout/include_head_bar" />
 
     <include layout="@layout/base_uif" />

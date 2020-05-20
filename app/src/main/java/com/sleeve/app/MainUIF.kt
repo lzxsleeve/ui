@@ -31,8 +31,10 @@ class MainUIF : LoadHeadBarUIF(), View.OnClickListener {
         setSwipeBackEnable(false)
         main_request.setOnClickListener(this)
         main_bar_color.setOnClickListener(this)
+        main_bar_set.setOnClickListener(this)
         main_toolbar_color.setOnClickListener(this)
         main_reset.setOnClickListener(this)
+        main_go_page.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -40,9 +42,11 @@ class MainUIF : LoadHeadBarUIF(), View.OnClickListener {
             main_request -> {
                 requestTest()
             }
+            main_bar_set -> {
+                setStatusBarView()
+            }
             main_bar_color -> {
-                val color = ContextCompat.getColor(_mActivity, R.color.colorPrimary)
-                mStartBar?.setStatusBarBackgroundColor(color)
+                mStartBar?.setBackgroundColor(Color.BLACK)
             }
             main_toolbar_color -> {
                 setToolbarBackground(ColorDrawable(Color.RED))
@@ -50,8 +54,10 @@ class MainUIF : LoadHeadBarUIF(), View.OnClickListener {
             main_reset -> {
                 val color = ContextCompat.getColor(_mActivity, R.color.colorPrimary)
                 setToolbarBackground(ColorDrawable(color))
-                val colorDark = ContextCompat.getColor(_mActivity, R.color.colorPrimaryDark)
-                mStartBar?.setStatusBarBackgroundColor(colorDark)
+                mStartBar?.setBackgroundColor(color)
+            }
+            main_go_page -> {
+                start(MainUIF())
             }
         }
     }

@@ -2,7 +2,6 @@ package com.sleeve.ui.view;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -22,13 +21,11 @@ import com.sleeve.ui.R;
 
 /**
  * 状态栏高度的View
- * <p>
+ *
+ * @deprecated 跳转Fragment后会计算高度为零，暂时弃用，可使用{@link ImmersionView}.
  * Create by lzx on 2020/05/19.
  */
 public class StatusBarView extends View {
-    private static final int[] THEME_Color = {
-            R.color.colorPrimaryDark
-    };
 
     private WindowInsetsCompat mLastInsets;
     private boolean mDrawStatusBarBackground = true;
@@ -80,16 +77,9 @@ public class StatusBarView extends View {
             }
         });
 
-        // 默认颜色
+        // 设置默认颜色
         int color = ContextCompat.getColor(getContext(), R.color.colorPrimaryDark);
-        mStatusBarBackground=new ColorDrawable(color);
-
-//        final TypedArray a = getContext().obtainStyledAttributes(THEME_Color);
-//        try {
-//            mStatusBarBackground = a.getDrawable(0);
-//        } finally {
-//            a.recycle();
-//        }
+        mStatusBarBackground = new ColorDrawable(color);
 
         Resources r = getResources();
         float px = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, r.getDisplayMetrics());
