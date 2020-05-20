@@ -88,6 +88,7 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
 
     /**
      * 设置模拟的状态栏
+     * 因为AppBarLayout上层有阴影，所以将view添加在AppBarLayout内
      */
     protected void setStatusBarView() {
         if (mStartBar == null) {
