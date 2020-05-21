@@ -87,7 +87,7 @@
     </style>
     <style name="text14" parent="TextAppearance.AppCompat.Body1">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/text333</item>
+        <item name="android:textColor">@color/text666</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
