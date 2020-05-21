@@ -16,7 +16,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.27" />
+        app:layout_constraintWidth_percent="0.3" />
 
     <LinearLayout
         android:layout_width="wrap_content"
