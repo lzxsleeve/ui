@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.DrawableRes;
+import androidx.viewbinding.ViewBinding;
 
 import com.sleeve.net.throwable.LoadStatus;
 import com.sleeve.ui.base.BaseHeadBarUIF;
@@ -11,7 +12,7 @@ import com.sleeve.ui.base.BaseHeadBarUIF;
 /**
  * 有头部侧滑关闭的 LoadUIF
  */
-public abstract class LoadHeadBarUIF extends BaseHeadBarUIF implements LoadStatus {
+public abstract class LoadHeadBarUIF<VB extends ViewBinding> extends BaseHeadBarUIF<VB> implements LoadStatus {
 
     protected LoadStatus mLoader;
 

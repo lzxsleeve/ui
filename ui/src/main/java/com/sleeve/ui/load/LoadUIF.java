@@ -4,6 +4,7 @@ import android.content.Context;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.DrawableRes;
+import androidx.viewbinding.ViewBinding;
 
 import com.sleeve.net.throwable.LoadStatus;
 import com.sleeve.ui.base.BaseUIF;
@@ -11,7 +12,7 @@ import com.sleeve.ui.base.BaseUIF;
 /**
  * 没有侧滑关闭的 LoadUIF
  */
-public abstract class LoadUIF extends BaseUIF implements LoadStatus {
+public abstract class LoadUIF<T extends ViewBinding> extends BaseUIF<T> implements LoadStatus {
 
     protected LoadStatus mLoader;
 

@@ -2,6 +2,7 @@ package com.sleeve.ui.load;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
@@ -12,7 +13,6 @@ import androidx.annotation.DrawableRes;
 
 import com.sleeve.net.throwable.LoadStatus;
 import com.sleeve.ui.R;
-import com.sleeve.util.LDisplay;
 
 /**
  * 加载转圈以及一些其他情况
@@ -137,7 +137,7 @@ public class Loader implements LoadStatus {
         // mHasHeadBar必须先赋值,否则其他情况无效
         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) layout.getLayoutParams();
         if (mHasHeadBar) {
-            lp.topMargin = LDisplay.getDP(mLoaderOffset);
+            lp.topMargin = dp2px(mLoaderOffset);
         } else {
             lp.topMargin = 0;
         }
@@ -147,5 +147,13 @@ public class Loader implements LoadStatus {
     @Override
     public Context getContext() {
         return mContext;
+    }
+
+    /**
+     * dp2px
+     */
+    private int dp2px(float dp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp,
+                mContext.getResources().getDisplayMetrics());
     }
 }

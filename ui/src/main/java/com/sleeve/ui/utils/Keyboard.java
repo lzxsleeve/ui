@@ -1,4 +1,4 @@
-package com.sleeve.ui.util;
+package com.sleeve.ui.utils;
 
 import android.content.Context;
 import android.view.View;

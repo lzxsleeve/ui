@@ -7,9 +7,9 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
 import androidx.annotation.IdRes;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.viewbinding.ViewBinding;
 
 import com.sleeve.ui.R;
 
@@ -22,12 +22,16 @@ import me.yokeyword.fragmentation_swipeback.SwipeBackFragment;
  * <p>
  * Create by lzx on 2019/9/23
  */
-public abstract class BaseSwipeBackUIF extends SwipeBackFragment {
+public abstract class BaseSwipeBackUIF<VB extends ViewBinding> extends SwipeBackFragment {
 
     /**
      * 显示内容的根布局
      */
     protected FrameLayout mViewGroup;
+    /**
+     * ViewBinding
+     */
+    protected VB mBinding;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -40,11 +44,9 @@ public abstract class BaseSwipeBackUIF extends SwipeBackFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 显示内容的根布局
         mViewGroup = (FrameLayout) inflater.inflate(R.layout.base_uif, container, false);
-        // 添加内容布局
-        int contentLayout = getContentLayout();
-        if (contentLayout != 0) {
-            inflater.inflate(contentLayout, mViewGroup, true);
-        }
+        // 通过ViewBinding添加内容布局
+        mBinding = getViewBinging(inflater);
+        mViewGroup.addView(mBinding.getRoot());
 
         // 需要支持SwipeBack则这里必须调用 attachToSwipeBack(view);
         return attachToSwipeBack(mViewGroup);
@@ -56,8 +58,7 @@ public abstract class BaseSwipeBackUIF extends SwipeBackFragment {
         initView();
     }
 
-    @LayoutRes
-    protected abstract int getContentLayout();
+    protected abstract VB getViewBinging(@NonNull LayoutInflater inflater);
 
     protected abstract void initView();
 

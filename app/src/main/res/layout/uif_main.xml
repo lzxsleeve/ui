@@ -5,42 +5,35 @@
     android:orientation="vertical">
 
     <Button
-        android:id="@+id/main_request"
+        android:id="@+id/btn_request"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:text="网络请求测试" />
 
     <Button
-        android:id="@+id/main_bar_set"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="12dp"
-        android:text="设置状态栏" />
-
-    <Button
-        android:id="@+id/main_bar_color"
+        android:id="@+id/btn_bar_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:text="修改状态栏颜色" />
 
     <Button
-        android:id="@+id/main_toolbar_color"
+        android:id="@+id/btn_toolbar_color"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:text="修改标题栏颜色" />
 
     <Button
-        android:id="@+id/main_reset"
+        android:id="@+id/btn_reset"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"
         android:text="恢复设置" />
 
     <Button
-        android:id="@+id/main_go_page"
+        android:id="@+id/btn_go_page"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="12dp"

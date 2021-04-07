@@ -11,6 +11,7 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
+import androidx.viewbinding.ViewBinding;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.sleeve.ui.R;
@@ -27,7 +28,7 @@ import io.reactivex.observers.DisposableObserver;
  * <p>
  * Create by lzx on 2019/9/23
  */
-public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
+public abstract class BaseHeadBarUIF<VB extends ViewBinding> extends BaseSwipeBackUIF<VB> {
 
     protected HeadBar mHeadBar;
     // 装载 RxJava 的观察者
@@ -40,15 +41,13 @@ public abstract class BaseHeadBarUIF extends BaseSwipeBackUIF {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View layoutParent = inflater.inflate(R.layout.base_uif_toolbar, container, false);
-        // 显示内容的根布局
-        mViewGroup = layoutParent.findViewById(R.id.frame_layout);
         // 设置头部
         setToolbar(layoutParent);
-        // 添加头部以下内容布局
-        int contentLayout = getContentLayout();
-        if (contentLayout != 0) {
-            inflater.inflate(contentLayout, mViewGroup, true);
-        }
+        // 显示内容的根布局
+        mViewGroup = layoutParent.findViewById(R.id.frame_layout);
+        // 通过ViewBinding添加内容布局
+        mBinding = getViewBinging(inflater);
+        mViewGroup.addView(mBinding.getRoot());
 
         // 需要支持SwipeBack则这里必须调用 attachToSwipeBack(view);
         return attachToSwipeBack(layoutParent);

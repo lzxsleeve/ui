@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.sleeve.ui.R;
-import com.sleeve.ui.util.Keyboard;
+import com.sleeve.ui.utils.Keyboard;
 
 import me.yokeyword.fragmentation.ISupportFragment;
 import me.yokeyword.fragmentation.anim.DefaultHorizontalAnimator;

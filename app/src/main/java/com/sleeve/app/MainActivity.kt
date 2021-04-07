@@ -16,9 +16,9 @@ class MainActivity : BaseUIA() {
         }
 
         // 隐藏状态栏
-        StatusBarUtil.setRootViewFitsSystemWindows(this, false)
-        StatusBarUtil.setTranslucentStatus(this)
-        StatusBarUtil.setStatusBarDarkTheme(this, false)
+//        StatusBarUtil.setRootViewFitsSystemWindows(this, false)
+//        StatusBarUtil.setTranslucentStatus(this)
+//        StatusBarUtil.setStatusBarDarkTheme(this, false)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

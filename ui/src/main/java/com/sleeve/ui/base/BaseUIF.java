@@ -8,9 +8,9 @@ import android.widget.FrameLayout;
 
 import androidx.annotation.CallSuper;
 import androidx.annotation.IdRes;
-import androidx.annotation.LayoutRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.viewbinding.ViewBinding;
 
 import com.sleeve.ui.R;
 import com.sleeve.ui.view.HeadBar;
@@ -28,7 +28,7 @@ import me.yokeyword.fragmentation.anim.FragmentAnimator;
  * <p>
  * Create by lzx on 2019/9/23
  */
-public abstract class BaseUIF extends SupportFragment {
+public abstract class BaseUIF<VB extends ViewBinding> extends SupportFragment {
 
     /**
      * 显示内容的根布局
@@ -38,17 +38,19 @@ public abstract class BaseUIF extends SupportFragment {
      * 装载 RxJava 的观察者
      */
     protected CompositeDisposable mCompositeDisposable;
+    /**
+     * ViewBinding
+     */
+    protected VB mBinding;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // 显示内容的根布局
         mViewGroup = (FrameLayout) inflater.inflate(R.layout.base_uif, container, false);
-        // 添加内容布局
-        int contentLayout = getContentLayout();
-        if (contentLayout != 0) {
-            inflater.inflate(contentLayout, mViewGroup, true);
-        }
+        // 通过ViewBinding添加内容布局
+        mBinding = getViewBinging(inflater);
+        mViewGroup.addView(mBinding.getRoot());
 
         // 需要支持SwipeBack则这里必须调用toSwipeBackFragment(view);
         return mViewGroup;
@@ -60,8 +62,7 @@ public abstract class BaseUIF extends SupportFragment {
         initView();
     }
 
-    @LayoutRes
-    protected abstract int getContentLayout();
+    protected abstract VB getViewBinging(@NonNull LayoutInflater inflater);
 
     protected abstract void initView();
 
@@ -115,6 +116,7 @@ public abstract class BaseUIF extends SupportFragment {
         if (mCompositeDisposable != null && mCompositeDisposable.size() > 0) {
             mCompositeDisposable.clear();
         }
+        mBinding = null;
         super.onDestroyView();
     }
 }
