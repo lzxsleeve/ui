@@ -45,7 +45,7 @@ public abstract class BaseSwipeBackUIF<VB extends ViewBinding> extends SwipeBack
         // 显示内容的根布局
         mViewGroup = (FrameLayout) inflater.inflate(R.layout.base_uif, container, false);
         // 通过ViewBinding添加内容布局
-        mBinding = getViewBinging(inflater);
+        mBinding = getViewBinding(inflater);
         mViewGroup.addView(mBinding.getRoot());
 
         // 需要支持SwipeBack则这里必须调用 attachToSwipeBack(view);
@@ -58,7 +58,7 @@ public abstract class BaseSwipeBackUIF<VB extends ViewBinding> extends SwipeBack
         initView();
     }
 
-    protected abstract VB getViewBinging(@NonNull LayoutInflater inflater);
+    protected abstract VB getViewBinding(@NonNull LayoutInflater inflater);
 
     protected abstract void initView();
 

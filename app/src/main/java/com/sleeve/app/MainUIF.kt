@@ -22,7 +22,7 @@ class MainUIF : LoadHeadBarUIF<UifMainBinding>(), View.OnClickListener {
         headBar.setCenterTitle("首页")
     }
 
-    override fun getViewBinging(inflater: LayoutInflater): UifMainBinding {
+    override fun getViewBinding(inflater: LayoutInflater): UifMainBinding {
         return UifMainBinding.inflate(inflater)
     }
 

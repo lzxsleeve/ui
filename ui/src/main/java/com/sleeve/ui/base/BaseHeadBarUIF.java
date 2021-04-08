@@ -46,7 +46,7 @@ public abstract class BaseHeadBarUIF<VB extends ViewBinding> extends BaseSwipeBa
         // 显示内容的根布局
         mViewGroup = layoutParent.findViewById(R.id.frame_layout);
         // 通过ViewBinding添加内容布局
-        mBinding = getViewBinging(inflater);
+        mBinding = getViewBinding(inflater);
         mViewGroup.addView(mBinding.getRoot());
 
         // 需要支持SwipeBack则这里必须调用 attachToSwipeBack(view);
