@@ -45,5 +45,5 @@ dependencies {
     implementation project(':ui')
 
     implementation 'com.github.lzxsleeve:util:1.2.6'
-    implementation 'com.github.lzxsleeve:net:1.0.2'
+    implementation 'com.github.lzxsleeve:net:1.0.3'
 }

@@ -1,7 +1,6 @@
 package com.sleeve.app
 
 import android.app.Application
-import android.content.Context
 import androidx.annotation.CallSuper
 import com.sleeve.net.NetConfig
 import com.sleeve.util.UtilConfig
