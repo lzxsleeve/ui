@@ -76,4 +76,10 @@ public abstract class BaseSwipeBackUIF<VB extends ViewBinding> extends SwipeBack
         hideSoftInput();
         super.onPause();
     }
+
+    @Override
+    public void onDestroyView() {
+        mBinding = null;
+        super.onDestroyView();
+    }
 }
